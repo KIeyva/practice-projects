@@ -1,2 +1,2 @@
-Kevin - 
-Harris - PUT & DELETE routes
+Kevin - Created GET and POST routes. Completed PUT and DELETE routes.
+Harris - Started PUT & DELETE routes
