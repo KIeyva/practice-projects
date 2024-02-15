@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Database UI</title>
+    <%- include('../partials/head'); %>
+</head>
+<header>
+    <%- include('../partials/header'); %>
+</header>
+<!-- obtained from the main bootstrap docs-->
+<body class="container justify-content-center">
+
+<!-- if data is an object and not empty display contents depending on the keys (view)-->
+    <% if (resultsData.length > 0 && typeof resultsData === 'object') { %>
+        <div class="card p-4 my-4 bg-light">
+            <h1 class="card-title">Results</h1>
+            <hr class="my-3">
+    
+            <% resultsData.forEach(function(data) { %>
+                <% if (data.level) { %>
+                    <p class="card-text">Level: <%= data.level %></p>
+                    <p class="card-text">Name: <%= data.name %></p>
+                <% } else if (data.capacity) { %>
+                    <p class="card-text">Room Number: <%= data.number %></p>
+                    <p class="card-text">Floor Level: <%= data.floor %></p>
+                    <p class="card-text">Capacity: <%= data.capacity %></p>
+                <% } else if (data.f_name) { %>
+                    <p class="card-text">First Name: <%= data.f_name %></p>
+                    <p class="card-text">Last Name: <%= data.l_name %></p>
+                    <p class="card-text">Age: <%= data.age %></p>
+                    <p class="card-text">Room Number: <%= data.room %></p>
+                    <hr class="my-3">
+                <% } %>
+            <% }); %>
+        </div>
+        <a href="/dashboard" class="btn btn-success">Return to Dashboard</a>
+        <a href="/view" class="btn btn-warning">Return to View</a>
+        <!-- if data is not object (from add/delete/modify) display the string according to its contents-->
+    <% } else if (typeof resultsData === 'string') { %>
+        <% if (resultsData.includes('updated') || resultsData.includes('changed')) { %>
+            <div class="card p-4 my-4 bg-light">
+                <h1 class="card-title">Results</h1>
+                <hr class="my-3">
+            <p class="card-text"><%= resultsData %></p>
+            </div>
+            <a href="/dashboard" class="btn btn-success">Return to Dashboard</a>
+            <a href="/modify" class="btn btn-warning">Return to Modify</a>
+        <% } else if (resultsData.includes('deleted')) { %>
+            <div class="card p-4 my-4 bg-light">
+                <h1 class="card-title">Results</h1>
+                <hr class="my-3">
+            <p class="card-text"><%= resultsData %></p>
+            </div>
+            <a href="/dashboard" class="btn btn-success">Return to Dashboard</a>
+            <a href="/delete" class="btn btn-warning">Return to Delete</a>
+        <% } else if (resultsData.includes('added')) { %>
+            <div class="card p-4 my-4 bg-light">
+                <h1 class="card-title">Results</h1>
+                <hr class="my-3">
+            <p class="card-text"><%= resultsData %></p>
+            </div>
+            <a href="/dashboard" class="btn btn-success">Return to Dashboard</a>
+            <a href="/add" class="btn btn-warning">Return to Add</a>
+        <% } else { %>
+            <div class="card p-4 my-4 bg-light">
+                <h3>Error: data not found</h3>
+            </div>
+            <a href="/dashboard" class="btn btn-success">Return to Dashboard</a>
+        <% } %>
+        <%}%>
+    
+    
+    
+    
+    <br>
+    <footer>
+        <%- include('../partials/footer'); %>
+    </footer>
+
+</body>
+</html>

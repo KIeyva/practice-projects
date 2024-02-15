@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <%- include('../partials/head'); %>
+</head>
+<header>        
+<%- include('../partials/header') %>
+</header>
+
+
+<body class="container">
+    <div class="container text-center my-4">
+        <h1 class="display-5">Dashboard</h1>
+    </div>
+    
+    <div class="container d-flex justify-content-center ">
+        <div class="list-group text-center p-3" style="width: 15rem">
+            <span class="list-group-item list-group-item-success fw-bold">
+                Actions
+            </span>
+            <a href="view" class="list-group-item list-group-item-action">View</a>
+            <a href="add" class="list-group-item list-group-item-action">Add</a>
+            <a href="modify" class="list-group-item list-group-item-action">Modify</a>
+            <a href="delete" class="list-group-item list-group-item-action">Delete</a>
+
+            <!-- Logout button -->
+            <form action="/logout" method="GET" class="mt-3">
+                <button type="submit" class="btn btn-danger">Logout</button>
+            </form>
+        </div>
+    </div>
+    </div>
+    <%- include('../partials/footer'); %>
+</body>
+
+
+
+</html>

@@ -1,0 +1,2 @@
+Harris Haq created the login functionlaity for sprint 2 along with index.ejs interface. Created the initial modify routes and authentication function.
+Kevin Leyva created the ejs templates for add, delete, modify, and view pages, and dashboard. Created the results.ejs page along with the functionality. Created the PUT, POST, DELETE routes, and unpdated the modify routes. Created partials.
